@@ -1,4 +1,5 @@
 from openai import AsyncOpenAI
+import os
 from core.config import (
     LLM_MODEL_INTEL,
     LLM_MODEL_RESPONSE,
@@ -6,10 +7,14 @@ from core.config import (
     TEMPERATURE_RESPONSE
 )
 
-client = AsyncOpenAI()
+def get_client():
+    return AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
 async def call_llm(system_prompt, user_prompt, mode="intel"):
+
+    client = get_client()
+
 
     model = LLM_MODEL_INTEL
     temperature = TEMPERATURE_INTEL
