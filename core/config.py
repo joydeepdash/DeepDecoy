@@ -31,12 +31,12 @@ TEMPERATURE_RESPONSE = 0.6
 MAX_TOKENS_INTEL = 300
 MAX_TOKENS_RESPONSE = 500
 
-API_KEY = os.getenv("API_KEY")
+def get_api_key():
+    key = os.getenv("API_KEY")
+    if not key:
+        raise RuntimeError("API_KEY not set")
+    return key.strip()
 
-if not API_KEY:
-    raise RuntimeError("API_KEY not set")
-
-API_KEY = API_KEY.strip()
 
 FINAL_CALLBACK_URL = "https://hackathon.guvi.in/api/updateHoneyPotFinalResult"
 #FINAL_CALLBACK_URL = "http://127.0.0.1:8000/test-callback"

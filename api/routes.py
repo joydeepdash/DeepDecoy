@@ -10,7 +10,7 @@ from services.callback import send_callback
 import asyncio
 from core.config import FINAL_CALLBACK_URL
 from fastapi import APIRouter, Header, HTTPException, Depends
-from core.config import API_KEY
+from core.config import get_api_key
 
 
 
@@ -42,7 +42,7 @@ def build_agent_notes(session):
 
 
 def verify_api_key(x_api_key: str = Header(...)):
-    if x_api_key.strip() != API_KEY:
+    if x_api_key.strip() != get_api_key():
         raise HTTPException(status_code=401, detail="Invalid API key")
 
 
