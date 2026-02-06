@@ -42,7 +42,7 @@ def build_agent_notes(session):
 
 
 def verify_api_key(x_api_key: str = Header(...)):
-    if x_api_key != API_KEY:
+    if x_api_key.strip() != API_KEY:
         raise HTTPException(status_code=401, detail="Invalid API key")
 
 
