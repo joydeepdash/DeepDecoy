@@ -46,9 +46,11 @@ Incoming message:
 """
 
     result = await call_llm(
-        SYSTEM_PROMPT,
-        prompt
+    SYSTEM_PROMPT,
+    prompt,
+    mode="response"
     )
+
 
     return result
 

@@ -1,4 +1,8 @@
 import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 # ---------- MODELS ----------
 
@@ -26,3 +30,10 @@ TEMPERATURE_RESPONSE = 0.6
 
 MAX_TOKENS_INTEL = 300
 MAX_TOKENS_RESPONSE = 500
+
+API_KEY = os.getenv("API_KEY")
+
+FINAL_CALLBACK_URL = "https://hackathon.guvi.in/api/updateHoneyPotFinalResult"
+#FINAL_CALLBACK_URL = "http://127.0.0.1:8000/test-callback"
+
+
