@@ -47,7 +47,7 @@ def verify_api_key(x_api_key: str = Header(...)):
 
 
 router = APIRouter()
-DEBUG = False
+DEBUG = True
 
 
 @router.post("/message")
